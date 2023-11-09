@@ -1,0 +1,75 @@
+#!/bin/bash
+
+#Title is subject to change
+
+echo -e "Welcome to Text Adventure! \n 
+  Please enter your character's name:\c"
+
+#This is where the user will choose their characters name and this info will be stored for the story
+
+read NAME
+
+#After user types in name they will be given the next prompt
+
+echo -e "Welcome $NAME, next you need select your class:\n"
+
+#List the available classes
+
+echo -e "Warrior \n
+Mage \n
+Hunter \n"
+
+while true; do
+  echo -e "Which class do you select:\c"
+  read CLASS
+  CLASS_LOWER=$(echo "$CLASS" | tr '[:upper:]' '[:lower:]')
+  #This converts all input to lowercase in case user types lowercase instead
+
+#add in attributes
+
+if [ "$CLASS_LOWER" = "warrior" ]; then
+    echo -e "These are your attributes: \n
+      Strength = 20 \n
+      Intelligence = 4 \n
+      Agility = 8 \n"
+    echo -e "[Press Enter To Continue]"
+    read WAATT
+    break
+    
+elif [ "$CLASS_LOWER" = "mage" ]; then
+    echo -e "These are your attributes: \n
+      Strength = 4 \n
+      Intelligence = 22 \n
+      Agility = 4 \n"
+    echo -e "[Press Enter To Continue]"
+    read MAATT
+    break
+    
+elif [ "$CLASS_LOWER" = "hunter" ]; then
+    echo -e "These are your attributes: \n
+      Strength = 8 \n
+      Intelligence = 8 \n
+      Agility = 16 \n"
+    echo -e "[Press Enter To Continue]"
+    read HUATT
+    break
+    
+ else
+    echo -e "Error: Incorrect Class Chosen"
+ fi
+done
+
+echo -e "You have chosen:\n
+ $NAME \n
+ $CLASS \n"
+
+echo -e "Do you wish to continue? Yes or No \n"
+ read CONTINUE
+CONTINUE_LOWER=$(echo "$CONTINUE" | tr '[:upper:]' '[:lower:]')
+#Convert
+
+if [ "$CONTINUE_LOWER" = "yes" ]; then
+    echo -e "Saving..."
+  else
+    echo -e "Restarting Character"
+fi
